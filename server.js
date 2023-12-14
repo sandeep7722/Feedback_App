@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+require('dotenv').config();
 const adminRoutes = require('./routes/adminRoutes');
 const demoRoutes = require('./routes/demoRoutes');
 const authRoutes = require('./routes/authRoutes');
@@ -18,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://livinglabsicets:Infy123%40@infyfeedback.jbtyfln.mongodb.net/infyFeedback', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
