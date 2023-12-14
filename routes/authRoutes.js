@@ -1,7 +1,7 @@
 //completed
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt'); // For password hashing
+ // For password hashing
 
 const Admin = require('../models/admin');
 
