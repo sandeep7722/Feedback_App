@@ -1,6 +1,7 @@
 //completed
 const express = require('express');
 const router = express.Router();
+require('dotenv').config();
  // For password hashing
 
 const Admin = require('../models/admin');
@@ -17,9 +18,9 @@ router.post('/login', async (req, res) => {
     // console.log(admin.password);
 
     // Check if admin exists and password is correct
-    if (admin ) {
+    if (username === process.env.USER_ID ) {
       // Check if the provided password matches the stored password (without encryption)
-      if (password === admin.password) {
+      if (password === process.env.PASSWORD) {
         res.status(200).json({ message: 'Login successful' });
       } else {
         res.status(401).json({ message: 'Invalid credentials' });
